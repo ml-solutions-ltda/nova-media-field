@@ -1,7 +1,7 @@
 export default function useMediaManipulations() {
     async function regenerate(id) {
         const response = await fetch(
-            `/nova-vendor/stepanenko3/nova-media-field/${id}/regenerate`,
+            `/nova-vendor/mlsolutions/nova-media-field/${id}/regenerate`,
             {
                 method: 'POST',
                 headers: {

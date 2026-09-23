@@ -1,6 +1,6 @@
 <?php
 
-namespace Stepanenko3\NovaMediaField\Traits;
+namespace Mlsolutions\NovaMediaField\Traits;
 
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 

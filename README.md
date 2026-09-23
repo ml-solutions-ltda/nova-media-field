@@ -1,8 +1,8 @@
 # Nova Media Field
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/stepanenko3/nova-media-field.svg?style=flat-square)](https://packagist.org/packages/stepanenko3/nova-media-field)
-[![Total Downloads](https://img.shields.io/packagist/dt/stepanenko3/nova-media-field.svg?style=flat-square)](https://packagist.org/packages/stepanenko3/nova-media-field)
-[![License](https://poser.pugx.org/stepanenko3/nova-media-field/license)](https://packagist.org/packages/stepanenko3/nova-media-field)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/mlsolutions/nova-media-field.svg?style=flat-square)](https://packagist.org/packages/mlsolutions/nova-media-field)
+[![Total Downloads](https://img.shields.io/packagist/dt/mlsolutions/nova-media-field.svg?style=flat-square)](https://packagist.org/packages/mlsolutions/nova-media-field)
+[![License](https://poser.pugx.org/mlsolutions/nova-media-field/license)](https://packagist.org/packages/mlsolutions/nova-media-field)
 
 ![screenshot of field](screenshots/field.png)
 
@@ -25,20 +25,20 @@ A Laravel Nova field for laravel-medilibrary.
 ## Requirements
 
 - `php: >=8.0`
-- `laravel/nova: ^4.0`
+- `laravel/nova: ^4.22 or ^5.0`
 - `spatie/laravel-medilibrary`: ^11.4
 
 ## Installation
 
 ```bash
 # Install the package
-composer require stepanenko3/nova-media-field
+composer require mlsolutions/nova-media-field
 ```
 
 ## Usage
 
 ```php
-use use Stepanenko3\NovaMediaField\Fields\Media;
+use Mlsolutions\NovaMediaField\Fields\Media;
 ...
 
 Media::make(__('Image'), 'image'), // Single image. Auto detect from collection

@@ -1,6 +1,6 @@
 <?php
 
-namespace Stepanenko3\NovaMediaField\Fields;
+namespace Mlsolutions\NovaMediaField\Fields;
 
 use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Arr;
@@ -9,8 +9,8 @@ use Illuminate\Validation\Rule;
 use Laravel\Nova\Fields\Field;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
-use Stepanenko3\NovaMediaField\Traits\MediaCustomPropertiesTrait;
-use Stepanenko3\NovaMediaField\Traits\MediaHasConversionsTrait;
+use Mlsolutions\NovaMediaField\Traits\MediaCustomPropertiesTrait;
+use Mlsolutions\NovaMediaField\Traits\MediaHasConversionsTrait;
 
 class Media extends Field
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Stepanenko3\NovaMediaField;
+namespace Mlsolutions\NovaMediaField;
 
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
 use Illuminate\Support\Facades\Route;
-use Stepanenko3\NovaMediaField\Http\Controllers\RegenerateController;
+use Mlsolutions\NovaMediaField\Http\Controllers\RegenerateController;
 
 class FieldServiceProvider extends ServiceProvider
 {
@@ -39,7 +39,7 @@ class FieldServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova'])
-            ->prefix('nova-vendor/stepanenko3/nova-media-field')
+            ->prefix('nova-vendor/mlsolutions/nova-media-field')
             ->group(function (): void {
                 // Route::post('sort', Http\Controllers\SortController::class);
                 // Route::post('{media}/crop', Http\Controllers\CropController::class);

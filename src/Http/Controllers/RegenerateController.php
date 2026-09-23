@@ -1,6 +1,6 @@
 <?php
 
-namespace Stepanenko3\NovaMediaField\Http\Controllers;
+namespace Mlsolutions\NovaMediaField\Http\Controllers;
 
 use Exception;
 use Illuminate\Http\JsonResponse;
