@@ -34,7 +34,8 @@ class FieldServiceProvider extends ServiceProvider
 
     public function routes(): void
     {
-        if ($this->app->routesAreCached()) {
+        if ($this->app->routesAreCached()
+            || ! class_exists(\Spatie\MediaLibrary\MediaCollections\Models\Media::class)) {
             return;
         }
 

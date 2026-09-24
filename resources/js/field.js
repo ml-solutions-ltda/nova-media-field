@@ -7,15 +7,21 @@ import CustomPropertiesModal from './components/CustomPropertiesModal.vue'
 import GalleryItem from './components/GalleryItem.vue'
 import GalleryPicture from './components/GalleryPicture.vue'
 // import Dropzone from './components/Dropzone'
-import { createPinia } from '@vendor/stepanenko3/nova-filemanager/dist/js/package.js'
+import ThumbnailField from './components/Fields/ThumbnailField.vue'
 import '../css/field.css'
 
 Nova.booting((app, store) => {
-    app.use(createPinia());
+    const fileManager = window.NovaFileManager
+    if (fileManager?.createPinia) {
+        app.use(fileManager.createPinia())
+    }
 
     app.component('index-nova-media-field', IndexField)
     app.component('detail-nova-media-field', DetailField)
     app.component('form-nova-media-field', FormField)
+    app.component('index-nova-media-thumbnail', ThumbnailField)
+    app.component('detail-nova-media-thumbnail', ThumbnailField)
+    app.component('form-nova-media-thumbnail', ThumbnailField)
     app.component('Gallery', Gallery)
     app.component('GalleryItem', GalleryItem)
     app.component('GalleryModal', GalleryModal)

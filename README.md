@@ -8,7 +8,7 @@
 
 ## Description
 
-A Laravel Nova field for laravel-medilibrary.
+Laravel Nova media fields and host-authorized thumbnail previews.
 
 ## Features
 
@@ -24,9 +24,11 @@ A Laravel Nova field for laravel-medilibrary.
 
 ## Requirements
 
-- `php: >=8.0`
+- `php: >=8.2`
 - `laravel/nova: ^4.22 or ^5.0`
-- `spatie/laravel-medilibrary`: ^11.4
+- `spatie/laravel-medialibrary: ^11.4` only when using the `Media` field
+
+The File Manager integration is optional. Install and register a File Manager release that supports the Laravel Nova version used by your application.
 
 ## Installation
 
@@ -85,12 +87,28 @@ Media::make('Images', 'images')
     ->singleMediaRules(['image', 'max:80']),
 ```
 
+## Display a host-authorized thumbnail
+
+Use `Thumbnail` for a read-only index preview when the host application owns the media model, storage, and authorization. The field renders only the URL passed to it; the host application must generate a reduced derivative and protect its route with the same authorization and tenant checks used for the media record.
+
+```php
+use Mlsolutions\NovaMediaField\Fields\Thumbnail;
+
+Thumbnail::make('Miniatura', fn () => $authorizedPreviewUrl)
+    ->altText($accessibleDescription)
+    ->fallbackText('Prévia indisponível')
+    ->dimensions(64, 64)
+    ->onlyOnIndex(),
+```
+
+The component never derives a URL from a storage path and never fetches the original file. A failed or missing preview URL displays the configured fallback. The `Thumbnail` field does not require `spatie/laravel-medialibrary`.
+
 ## Usage with File Manager
 
-### Install stepanenko3/nova-filemanager
+### Optionally install a Nova-compatible File Manager
 
 ```bash
-compore require stepanenko3/nova-filemanager
+composer require stepanenko3/nova-filemanager
 ```
 
 ### Register Service provider

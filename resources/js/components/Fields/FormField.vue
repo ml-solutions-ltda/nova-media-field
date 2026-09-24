@@ -15,7 +15,7 @@
                         :disabled="field.readonly"
                         :accepted-types="field.acceptedTypes"
                         :dusk="`${field.attribute}-delete-link`"
-                        :file-manager="field?.fileManager || false"
+                        :file-manager="field?.fileManager && fileManagerAvailable"
                         @fileChanged="handleFileChange"
                         @openFileManager="fileManagerState = true"
                     />
@@ -31,8 +31,9 @@
                 </div>
             </div>
 
-            <Teleport to="body" v-if="field?.fileManager || false">
-                <BrowserModal
+            <Teleport to="body" v-if="field?.fileManager && fileManagerAvailable">
+                <component
+                    :is="browserModal"
                     :multiple="field.multiple"
                     :selecting="true"
                     v-model:state="fileManagerState"
@@ -48,22 +49,27 @@ import { FormField, HandlesValidationErrors } from "laravel-nova";
 import uniqid from "uniqid";
 import { serialize } from "object-to-formdata";
 import DropZone from "../DropZone.vue";
-import { BrowserModal } from "@vendor/stepanenko3/nova-filemanager/dist/js/package.js";
-
 export default {
     mixins: [FormField, HandlesValidationErrors],
 
     props: ["resourceName", "resourceId", "field"],
 
-    components: {
-        BrowserModal,
-        DropZone,
-    },
+    components: { DropZone },
 
     data: () => ({
         originalValue: null,
         fileManagerState: false,
     }),
+
+    computed: {
+        browserModal() {
+            return window.NovaFileManager?.BrowserModal || null
+        },
+
+        fileManagerAvailable() {
+            return Boolean(this.browserModal)
+        },
+    },
 
     mounted() {
         this.originalValue = this.field.value.slice();

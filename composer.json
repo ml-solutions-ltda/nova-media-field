@@ -1,8 +1,8 @@
 {
     "name": "mlsolutions/nova-media-field",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "homepage": "https://github.com/ml-solutions-ltda/nova-media-field",
-    "description": "A Laravel Nova field for laravel-medilibrary.",
+    "description": "Laravel Nova media fields and host-authorized thumbnail previews.",
     "keywords": [
         "laravel",
         "nova",
@@ -12,9 +12,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "laravel/nova": "^4.22 || ^5.0",
-        "spatie/laravel-medialibrary": "^11.4",
-        "stepanenko3/nova-filemanager": "^7.1.1"
+        "laravel/nova": "^4.22 || ^5.0"
+    },
+    "suggest": {
+        "spatie/laravel-medialibrary": "Required only when using the Media field.",
+        "stepanenko3/nova-filemanager": "Optional File Manager integration. Install a release compatible with your Laravel Nova version."
     },
     "autoload": {
         "psr-4": {
